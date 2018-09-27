@@ -18,15 +18,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [UIView animateWithDuration: 6 delay: 0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^(void){
+    
+    // Splash Animation to let the user know the App is running while data is retrived from the internet
+    [UIView animateWithDuration: 1 delay: 0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^(void){
         self.welcomeLabel.alpha = 0;
     } completion:nil];
+    
+    // WorkAround to have some delay, so the user will see the splash screen and not jump right away to Movie List
+    [UIView animateWithDuration: 6 delay: 0 options: UIViewAnimationOptionCurveEaseIn animations:^(void){
+        self.view.alpha = 0.999; // insignicant change, just to make the animation runs
+    } completion:^(BOOL finished){
+        // retrive data online, save in core data and when cpmplete -> go to the next screen
+        [self parseJsonFromFollowingUrl: @"https://api.androidhive.info/json/movies.json"];
+    } ];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)parseJsonFromFollowingUrl:(NSString *) apiUrl{
+    [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
 }
 
 
