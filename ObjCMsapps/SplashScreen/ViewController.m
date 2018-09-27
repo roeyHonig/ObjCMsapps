@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Movie.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
@@ -28,9 +29,13 @@
     [UIView animateWithDuration: 6 delay: 0 options: UIViewAnimationOptionCurveEaseIn animations:^(void){
         self.view.alpha = 0.999; // insignicant change, just to make the animation runs
     } completion:^(BOOL finished){
-        // retrive data online, save in core data and when cpmplete -> go to the next screen
+        // retrive data online, save in core data (if needed), read core data and when cpmplete -> go to the next screen
         [self parseJsonFromFollowingUrl: @"https://api.androidhive.info/json/movies.json"];
     } ];
+    
+    
+    Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"someImageUrl" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
+    NSLog(@"movie number 1 is: %@", movie1.genre);
 }
 
 

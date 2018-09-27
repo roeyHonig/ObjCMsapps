@@ -14,6 +14,7 @@
 		6D2954AB215D02D2002B2ABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D2954AA215D02D2002B2ABE /* Assets.xcassets */; };
 		6D2954AE215D02D2002B2ABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2954AC215D02D2002B2ABE /* LaunchScreen.storyboard */; };
 		6D2954B1215D02D2002B2ABE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954B0215D02D2002B2ABE /* main.m */; };
+		6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954BB215D1DC0002B2ABE /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		6D2954AD215D02D2002B2ABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D2954AF215D02D2002B2ABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D2954B0215D02D2002B2ABE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6D2954BA215D1DC0002B2ABE /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		6D2954BB215D1DC0002B2ABE /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 		6D29549D215D02D2002B2ABE /* ObjCMsapps */ = {
 			isa = PBXGroup;
 			children = (
+				6D2954BD215D1DCC002B2ABE /* MovieDataStructure */,
 				6D2954B7215D096B002B2ABE /* SplashScreen */,
 				6D29549E215D02D2002B2ABE /* AppDelegate.h */,
 				6D29549F215D02D2002B2ABE /* AppDelegate.m */,
@@ -80,6 +84,15 @@
 				6D2954A2215D02D2002B2ABE /* ViewController.m */,
 			);
 			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		6D2954BD215D1DCC002B2ABE /* MovieDataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				6D2954BB215D1DC0002B2ABE /* Movie.m */,
+				6D2954BA215D1DC0002B2ABE /* Movie.h */,
+			);
+			path = MovieDataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +168,7 @@
 			files = (
 				6D2954A3215D02D2002B2ABE /* ViewController.m in Sources */,
 				6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */,
+				6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */,
 				6D2954B1215D02D2002B2ABE /* main.m in Sources */,
 				6D2954A9215D02D2002B2ABE /* ObjCMsapps.xcdatamodeld in Sources */,
 			);
