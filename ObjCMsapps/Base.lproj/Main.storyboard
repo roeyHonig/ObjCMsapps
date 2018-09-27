@@ -46,7 +46,7 @@
         <!--Movie List-->
         <scene sceneID="3Xg-RC-xWe">
             <objects>
-                <viewController id="nUE-lu-h83" sceneMemberID="viewController">
+                <viewController id="nUE-lu-h83" customClass="MovieListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B3F-nT-1Gz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

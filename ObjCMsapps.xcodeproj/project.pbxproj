@@ -15,6 +15,7 @@
 		6D2954AE215D02D2002B2ABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2954AC215D02D2002B2ABE /* LaunchScreen.storyboard */; };
 		6D2954B1215D02D2002B2ABE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954B0215D02D2002B2ABE /* main.m */; };
 		6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954BB215D1DC0002B2ABE /* Movie.m */; };
+		6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954CB215D433F002B2ABE /* MovieListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		6D2954B0215D02D2002B2ABE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D2954BA215D1DC0002B2ABE /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		6D2954BB215D1DC0002B2ABE /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		6D2954CA215D433F002B2ABE /* MovieListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListViewController.h; sourceTree = "<group>"; };
+		6D2954CB215D433F002B2ABE /* MovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 		6D29549D215D02D2002B2ABE /* ObjCMsapps */ = {
 			isa = PBXGroup;
 			children = (
+				6D2954C9215D4309002B2ABE /* MovieList */,
 				6D2954BD215D1DCC002B2ABE /* MovieDataStructure */,
 				6D2954B7215D096B002B2ABE /* SplashScreen */,
 				6D29549E215D02D2002B2ABE /* AppDelegate.h */,
@@ -93,6 +97,16 @@
 				6D2954BA215D1DC0002B2ABE /* Movie.h */,
 			);
 			path = MovieDataStructure;
+			sourceTree = "<group>";
+		};
+		6D2954C9215D4309002B2ABE /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				6D2954CA215D433F002B2ABE /* MovieListViewController.h */,
+				6D2954CB215D433F002B2ABE /* MovieListViewController.m */,
+			);
+			name = MovieList;
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D2954A3215D02D2002B2ABE /* ViewController.m in Sources */,
+				6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */,
 				6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */,
 				6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */,
 				6D2954B1215D02D2002B2ABE /* main.m in Sources */,
