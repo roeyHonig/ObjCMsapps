@@ -10,6 +10,8 @@
 #import "Movie.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) NSMutableArray * moviesCollection;
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 @end
@@ -33,9 +35,20 @@
         [self parseJsonFromFollowingUrl: @"https://api.androidhive.info/json/movies.json"];
     } ];
     
+    // init properties
+    self.moviesCollection = [[NSMutableArray alloc] init];
     
     Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"someImageUrl" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
-    NSLog(@"movie number 1 is: %@", movie1.genre);
+    [self.moviesCollection addObject: movie1];
+    
+    Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"someImageUrl1" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
+    [self.moviesCollection addObject: movie2];
+    
+    Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"someImageUrl2" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
+    [self.moviesCollection addObject: movie3];
+    
+    NSLog(@"%d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
+    
 }
 
 
