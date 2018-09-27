@@ -60,10 +60,9 @@
 		6D29549D215D02D2002B2ABE /* ObjCMsapps */ = {
 			isa = PBXGroup;
 			children = (
+				6D2954B7215D096B002B2ABE /* SplashScreen */,
 				6D29549E215D02D2002B2ABE /* AppDelegate.h */,
 				6D29549F215D02D2002B2ABE /* AppDelegate.m */,
-				6D2954A1215D02D2002B2ABE /* ViewController.h */,
-				6D2954A2215D02D2002B2ABE /* ViewController.m */,
 				6D2954A4215D02D2002B2ABE /* Main.storyboard */,
 				6D2954AA215D02D2002B2ABE /* Assets.xcassets */,
 				6D2954AC215D02D2002B2ABE /* LaunchScreen.storyboard */,
@@ -72,6 +71,15 @@
 				6D2954A7215D02D2002B2ABE /* ObjCMsapps.xcdatamodeld */,
 			);
 			path = ObjCMsapps;
+			sourceTree = "<group>";
+		};
+		6D2954B7215D096B002B2ABE /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6D2954A1215D02D2002B2ABE /* ViewController.h */,
+				6D2954A2215D02D2002B2ABE /* ViewController.m */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

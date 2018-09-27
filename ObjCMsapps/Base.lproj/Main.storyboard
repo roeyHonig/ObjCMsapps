@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Going Online to get your movies :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-Br-ePK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going Online to get your movies :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zs-Br-ePK">
                                 <rect key="frame" x="8" y="323" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -27,12 +27,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="3zs-Br-ePK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ZE-Tu-fYQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3zs-Br-ePK" secondAttribute="trailing" constant="8" id="PAk-JU-fz3"/>
+                            <constraint firstItem="3zs-Br-ePK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RSf-wv-KBg"/>
                             <constraint firstItem="3zs-Br-ePK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Xep-BK-St4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="welcomeLabel" destination="3zs-Br-ePK" id="BXu-gi-Tdr"/>
                         <segue destination="1tC-xw-NZf" kind="show" identifier="goToMovieListSegue" id="08Y-V3-c9n"/>
                     </connections>
                 </viewController>
