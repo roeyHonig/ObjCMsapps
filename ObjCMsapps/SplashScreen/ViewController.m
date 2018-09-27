@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Movie.h"
+#import "MovieListViewController.h"
 
 @interface ViewController ()
 
@@ -38,16 +39,7 @@
     // init properties
     self.moviesCollection = [[NSMutableArray alloc] init];
     
-    Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"someImageUrl" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
-    [self.moviesCollection addObject: movie1];
-    
-    Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"someImageUrl1" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
-    [self.moviesCollection addObject: movie2];
-    
-    Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"someImageUrl2" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
-    [self.moviesCollection addObject: movie3];
-    
-    NSLog(@"%d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
+   
     
 }
 
@@ -58,8 +50,33 @@
 }
 
 - (void)parseJsonFromFollowingUrl:(NSString *) apiUrl{
+    [self getMovieCollectionManually]; // should be read from core data and not manually
     [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue destinationViewController] isKindOfClass:[UINavigationController class]]) {
+        NSLog(@"next screen is the movie list so prepere");
+        MovieListViewController *tmpMovieListViewController = (MovieListViewController *)(([((UINavigationController *)[segue destinationViewController]) viewControllers])[0]);
+        tmpMovieListViewController.moviesCollection = [[NSMutableArray alloc] init];
+        tmpMovieListViewController.moviesCollection = self.moviesCollection;
+        
+    }
+}
+
+
+
+- (void) getMovieCollectionManually {
+    Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"someImageUrl" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
+    [self.moviesCollection addObject: movie1];
+    
+    Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"someImageUrl1" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
+    [self.moviesCollection addObject: movie2];
+    
+    Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"someImageUrl2" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
+    [self.moviesCollection addObject: movie3];
+    
+    NSLog(@"Splash screen controller says %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
+}
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "MovieListViewController.h"
+#import "Movie.h"
 
 @interface MovieListViewController ()
+
+//@property (strong, nonatomic) NSMutableArray * moviesCollection;
 
 @end
 
@@ -17,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"MovieListController says:  %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
+
 }
 
 - (void)didReceiveMemoryWarning {

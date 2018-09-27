@@ -10,4 +10,6 @@
 
 @interface MovieListViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray * moviesCollection;
+
 @end
