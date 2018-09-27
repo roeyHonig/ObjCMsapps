@@ -9,9 +9,10 @@
 #import "MovieListViewController.h"
 #import "Movie.h"
 
-@interface MovieListViewController ()
+@interface MovieListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 //@property (strong, nonatomic) NSMutableArray * moviesCollection;
+@property (strong, nonatomic) IBOutlet UITableView *moviesTableView;
 
 @end
 
@@ -20,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.moviesTableView.delegate = self;
+    self.moviesTableView.dataSource = self;
+    [self.moviesTableView reloadData];
     
     NSLog(@"MovieListController says:  %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
 
@@ -39,5 +43,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell"];
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.moviesCollection count];
+}
+
 
 @end

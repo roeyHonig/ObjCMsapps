@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,7 +51,43 @@
                     <view key="view" contentMode="scaleToFill" id="B3F-nT-1Gz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-4R-0AR">
+                                <rect key="frame" x="8" y="64" width="359" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" rowHeight="127" id="LSG-vC-9hz">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LSG-vC-9hz" id="ccz-en-YRT">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="126.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="icons8-movie_projector_filled" translatesAutoresizingMaskIntoConstraints="NO" id="IJo-V2-nYr">
+                                                    <rect key="frame" x="8" y="-10" width="100" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="Yda-z8-WVk"/>
+                                                        <constraint firstAttribute="width" secondItem="IJo-V2-nYr" secondAttribute="height" id="bir-xU-Kfw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="IJo-V2-nYr" secondAttribute="bottom" constant="8" id="UQS-Cz-eUa"/>
+                                                <constraint firstItem="IJo-V2-nYr" firstAttribute="top" secondItem="ccz-en-YRT" secondAttribute="top" constant="8" id="cAj-nt-Ls5"/>
+                                                <constraint firstItem="IJo-V2-nYr" firstAttribute="leading" secondItem="ccz-en-YRT" secondAttribute="leading" constant="8" id="nN3-Ko-ChE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ASp-kQ-HcB" firstAttribute="bottom" secondItem="vCc-4R-0AR" secondAttribute="bottom" id="NMu-5u-a5e"/>
+                            <constraint firstItem="vCc-4R-0AR" firstAttribute="trailing" secondItem="ASp-kQ-HcB" secondAttribute="trailing" constant="-8" id="Y4x-Dj-XFw"/>
+                            <constraint firstItem="vCc-4R-0AR" firstAttribute="top" secondItem="ASp-kQ-HcB" secondAttribute="top" id="lVW-4p-VEV"/>
+                            <constraint firstItem="vCc-4R-0AR" firstAttribute="leading" secondItem="ASp-kQ-HcB" secondAttribute="leading" constant="8" id="sKw-pm-fOt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ASp-kQ-HcB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="Gjy-1q-oPc">
@@ -67,6 +104,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="moviesTableView" destination="vCc-4R-0AR" id="PfF-jH-Vqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73z-Qc-Zgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,4 +164,7 @@
             <point key="canvasLocation" x="1236" y="116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-movie_projector_filled" width="75" height="75"/>
+    </resources>
 </document>
