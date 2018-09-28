@@ -31,7 +31,7 @@
     [self.moviesTableView reloadData];
     
     NSLog(@"MovieListController says:  %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,9 +53,18 @@
         Movie *movieOfTheSelectedCell = ((MovieCellTableViewCell *) sender).specificMovieInfo;
         
         tmpMovieDetailsViewController.moviesHeader = movieOfTheSelectedCell;
+        
+        // the following is just an example on how to do tasks assync and publish on the main theread
         /*
-        tmpMovieListViewController.moviesCollection = [[NSMutableArray alloc] init];
-        tmpMovieListViewController.moviesCollection = self.moviesCollection;
+        // call to perfrom some code assync (not on the main Q which is the ui queue)
+        dispatch_async(dispatch_queue_create("myQueue", NULL), ^{
+            sleep(6); // hard to grow pitches
+            
+            // publish results back in the main Q
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"blast from the past");
+            });
+        });
         */
     }
 }
