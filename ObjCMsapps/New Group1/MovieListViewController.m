@@ -8,6 +8,8 @@
 
 #import "MovieListViewController.h"
 #import "Movie.h"
+#import "MovieCellTableViewCell.h"
+
 
 @interface MovieListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -45,7 +47,11 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"movieCell"];
+    MovieCellTableViewCell *cell = (MovieCellTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"movieCell"];
+    
+    cell.movieTitleLabel.text = [NSString stringWithFormat:@"%@ (%d)",((Movie *)self.moviesCollection[indexPath.row]).title,((Movie *)self.moviesCollection[indexPath.row]).releaseYear];
+    
+    cell.movieThumbNailImage.image = [UIImage imageNamed:@"icons8-movie_filled"];
     
     return cell;
 }

@@ -10,4 +10,9 @@
 
 @interface MovieCellTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *movieThumbNailImage;
+@property (strong, nonatomic) IBOutlet UILabel *movieTitleLabel;
+
+
+
 @end
