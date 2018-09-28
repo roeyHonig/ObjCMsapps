@@ -95,4 +95,40 @@
     }
 }
 
+- (void) saveMovieWithTitle: (NSString *) title
+         withPosterImageUrl: (NSString *) image
+                 withRating: (double) rating
+            withReleaseYear: (int) releaseYear
+                  withGenre: (NSArray *) genre {
+    
+    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    NSManagedObject *tmpMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:context];
+    
+    // TODO: cheack for duplicate
+    
+    // insert into coreData
+    [tmpMovie setValue:title forKey:@"title"];
+    [tmpMovie setValue:image forKey:@"image"];
+    [tmpMovie setValue:[NSNumber numberWithDouble:rating] forKey:@"rating"];
+    [tmpMovie setValue:[NSNumber numberWithInt:releaseYear] forKey:@"releaseYear"];
+    [tmpMovie setValue:genre forKey:@"genre"];
+    
+    // try to save to persistant store
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"oops, something went wrong, cant save to coreData %@ %@", error, [error localizedDescription]);
+    }
+    
+}
+
+- (NSMutableArray *) readCoreData {
+    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Movie"];
+    //TODO: add sorting by release year
+    NSMutableArray *results = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    return results;
+}
+
 @end
