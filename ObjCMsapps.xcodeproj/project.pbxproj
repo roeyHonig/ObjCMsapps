@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3D1C015907C586AF1A69C2 /* libPods-ObjCMsapps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E412DD80AADD12F5358347B0 /* libPods-ObjCMsapps.a */; };
 		6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D29549F215D02D2002B2ABE /* AppDelegate.m */; };
 		6D2954A3215D02D2002B2ABE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954A2215D02D2002B2ABE /* ViewController.m */; };
 		6D2954A6215D02D2002B2ABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2954A4215D02D2002B2ABE /* Main.storyboard */; };
@@ -18,13 +19,11 @@
 		6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954CB215D433F002B2ABE /* MovieListViewController.m */; };
 		6D2954CF215DA20C002B2ABE /* MovieCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954CE215DA20C002B2ABE /* MovieCellTableViewCell.m */; };
 		6DCE7384215DBF9A009C407D /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCE7383215DBF9A009C407D /* MovieDetailsViewController.m */; };
-		A1FC1A08CEBA236F7BFB7385 /* Pods_ObjCMsapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1182197F10179EA99359F3 /* Pods_ObjCMsapps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BB33D6B5FDC0421FDD41D72 /* Pods-ObjCMsapps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCMsapps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps.debug.xcconfig"; sourceTree = "<group>"; };
 		33CE44E8BCD45DE8896366C6 /* Pods-ObjCMsapps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCMsapps.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps.release.xcconfig"; sourceTree = "<group>"; };
-		3C1182197F10179EA99359F3 /* Pods_ObjCMsapps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObjCMsapps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D29549B215D02D2002B2ABE /* ObjCMsapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCMsapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D29549E215D02D2002B2ABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D29549F215D02D2002B2ABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		6D2954CE215DA20C002B2ABE /* MovieCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCellTableViewCell.m; sourceTree = "<group>"; };
 		6DCE7382215DBF9A009C407D /* MovieDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
 		6DCE7383215DBF9A009C407D /* MovieDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
+		E412DD80AADD12F5358347B0 /* libPods-ObjCMsapps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCMsapps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FC1A08CEBA236F7BFB7385 /* Pods_ObjCMsapps.framework in Frameworks */,
+				0E3D1C015907C586AF1A69C2 /* libPods-ObjCMsapps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 		1A2106013616D9B44AD79B4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C1182197F10179EA99359F3 /* Pods_ObjCMsapps.framework */,
+				E412DD80AADD12F5358347B0 /* libPods-ObjCMsapps.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,7 +162,6 @@
 				6D295497215D02D2002B2ABE /* Sources */,
 				6D295498215D02D2002B2ABE /* Frameworks */,
 				6D295499215D02D2002B2ABE /* Resources */,
-				E3E56198280910A7D1AE5434 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,24 +219,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E3E56198280910A7D1AE5434 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F8FC85DCC4E9ACE6DDCA130D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -409,6 +390,7 @@
 				DEVELOPMENT_TEAM = GA3LC47ZM3;
 				INFOPLIST_FILE = ObjCMsapps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = student.roey.honig.ObjCMsapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,6 +406,7 @@
 				DEVELOPMENT_TEAM = GA3LC47ZM3;
 				INFOPLIST_FILE = ObjCMsapps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = student.roey.honig.ObjCMsapps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

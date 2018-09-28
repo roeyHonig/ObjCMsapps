@@ -17,6 +17,13 @@
 
 - (void)saveContext;
 
+- (void) saveMovieWithTitle: (NSString *) title
+         withPosterImageUrl: (NSString *) image
+                 withRating: (double) rating
+            withReleaseYear: (int) releaseYear
+                  withGenre: (NSArray *) genre;
+
+- (NSMutableArray *) readCoreData;
 
 @end
 

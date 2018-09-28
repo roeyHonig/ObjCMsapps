@@ -6,9 +6,12 @@
 //  Copyright © 5779 student.roey.honig. All rights reserved.
 //
 
+#import "AppDelegate.h"
+
 #import "ViewController.h"
 #import "Movie.h"
 #import "MovieListViewController.h"
+
 
 @interface ViewController ()
 
@@ -50,7 +53,21 @@
 }
 
 - (void)parseJsonFromFollowingUrl:(NSString *) apiUrl{
-    [self getMovieCollectionManually]; // should be read from core data and not manually
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
+    for (Movie *movie in artificialMoviesCollection) {
+        // itearate and save into coreData
+        [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
+    }
+    
+    // read coreData and append to this class local self.moviesCollection
+    NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
+    for (Movie *movie in moviesCollectionFromCoreData) {
+        [self.moviesCollection addObject:movie];
+    }
+    
+    // proceed to next screen
     [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
 }
 
@@ -66,17 +83,19 @@
 
 
 
-- (void) getMovieCollectionManually {
+- (NSMutableArray *) getMovieCollectionManually {
+    NSMutableArray *artificalMovieCollection = [[NSMutableArray alloc] init];
+    
     Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"https://api.androidhive.info/json/movies/1.jpg" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
-    [self.moviesCollection addObject: movie1];
+    [artificalMovieCollection addObject: movie1];
     
     Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"https://api.androidhive.info/json/movies/2.jpg" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
-    [self.moviesCollection addObject: movie2];
+    [artificalMovieCollection addObject: movie2];
     
     Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"https://api.androidhive.info/json/movies/3.jpg" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
-    [self.moviesCollection addObject: movie3];
+    [artificalMovieCollection addObject: movie3];
     
-    NSLog(@"Splash screen controller says %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast
+    return artificalMovieCollection;
 }
 
 @end

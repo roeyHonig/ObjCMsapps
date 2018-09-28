@@ -10,6 +10,8 @@
 
 @interface AppDelegate ()
 
+
+
 @end
 
 @implementation AppDelegate
@@ -102,7 +104,7 @@
                   withGenre: (NSArray *) genre {
     
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
-    NSManagedObject *tmpMovie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:context];
+    NSManagedObject *tmpMovie = [NSEntityDescription insertNewObjectForEntityForName:@"MovieCoreData" inManagedObjectContext:context];
     
     // TODO: cheack for duplicate
     
@@ -124,7 +126,7 @@
 - (NSMutableArray *) readCoreData {
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Movie"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MovieCoreData"];
     //TODO: add sorting by release year
     NSMutableArray *results = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
