@@ -53,7 +53,7 @@
 
 - (void)parseJsonFromFollowingUrl:(NSString *) apiUrl{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
+    NSMutableArray *artificialMoviesCollection = [[NSMutableArray alloc] init];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithURL:[NSURL URLWithString:apiUrl] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -64,9 +64,18 @@
        
         NSLog(@"tryin the title : %@", jsonResponse[0]);
         
+        for (NSDictionary *dic in jsonResponse) {
+            Movie *mov = [[Movie alloc] initWithTitle:[dic valueForKey:@"title"] andImageUrl:[dic valueForKey:@"image"] andRating:[[dic valueForKey:@"rating"] doubleValue] andReleaseYear:[[dic valueForKey:@"releaseYear"] integerValue] andGenre:[dic valueForKey:@"genre"]];
+            
+            [artificialMoviesCollection addObject:mov];
+        }
+        
+        NSDictionary *roey = (NSDictionary *)jsonResponse[0];
+        NSLog(@"so roey title is %@", [roey valueForKey:@"title"]);
+        
     }] resume];
     
-    NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
+    //NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
     
     
      // call to perfrom some code assync (not on the main Q which is the ui queue)
