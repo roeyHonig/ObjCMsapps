@@ -55,19 +55,29 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
-    for (Movie *movie in artificialMoviesCollection) {
-        // itearate and save into coreData
-        [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
-    }
     
-    // read coreData and append to this class local self.moviesCollection
-    NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
-    for (Movie *movie in moviesCollectionFromCoreData) {
-        [self.moviesCollection addObject:movie];
-    }
     
-    // proceed to next screen
-    [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
+     // call to perfrom some code assync (not on the main Q which is the ui queue)
+     dispatch_async(dispatch_queue_create("myQueue", NULL), ^{
+         for (Movie *movie in artificialMoviesCollection) {
+             // itearate and save into coreData
+             [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
+         }
+         
+         // read coreData and append to this class local self.moviesCollection
+         NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
+         for (Movie *movie in moviesCollectionFromCoreData) {
+             [self.moviesCollection addObject:movie];
+         }
+     
+         // publish results back in the main Q
+         dispatch_async(dispatch_get_main_queue(), ^{
+             // proceed to next screen
+             [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
+         });
+     });
+
+   
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
