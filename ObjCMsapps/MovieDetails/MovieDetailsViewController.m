@@ -31,7 +31,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"presenting movie titled: %@", self.moviesHeader.title);
+    NSLog(@"presenting movie titled: %@", self.moviesHeader.genre);
 }
 
 - (void) initDisplayElementsOfThisScreen {
@@ -55,6 +55,7 @@
             [txtForGenreLabel appendString: (NSString *)(self.moviesHeader.genre[i])];
         }
     }
+    self.genreLabel.text = txtForGenreLabel;
     
     NSString *imageUrl = self.moviesHeader.image;
     [self.posterImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"icons8-short_filled"]]; //TODO: replace the placeHolderImage to something else
