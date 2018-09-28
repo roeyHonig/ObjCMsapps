@@ -125,12 +125,87 @@
                     <view key="view" contentMode="scaleToFill" id="zey-CQ-R2b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-54-rwL" userLabel="container">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Or2-AF-gQ3" userLabel="imgContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-movie_projector_filled" translatesAutoresizingMaskIntoConstraints="NO" id="Vos-CX-l81">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Vos-CX-l81" firstAttribute="top" secondItem="Or2-AF-gQ3" secondAttribute="top" id="CfN-3A-xah"/>
+                                            <constraint firstItem="Vos-CX-l81" firstAttribute="leading" secondItem="Or2-AF-gQ3" secondAttribute="leading" id="ORv-Kr-7yh"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vos-CX-l81" secondAttribute="bottom" id="Rcn-dH-Q14"/>
+                                            <constraint firstAttribute="height" secondItem="Or2-AF-gQ3" secondAttribute="width" id="UUt-Lv-Hwi"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vos-CX-l81" secondAttribute="trailing" id="Ywz-t6-aBA"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Cea-tf-Zcc">
+                                        <rect key="frame" x="0.0" y="367" width="359" height="220"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYb-66-fKJ" userLabel="titleLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ye-VY-gZI" userLabel="ratingLabel">
+                                                <rect key="frame" x="0.0" y="55" width="359" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9F-5o-pIk" userLabel="releaseYearLabel">
+                                                <rect key="frame" x="0.0" y="110" width="359" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-77-bgM" userLabel="genreLabel">
+                                                <rect key="frame" x="0.0" y="165" width="359" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Cea-tf-Zcc" firstAttribute="top" secondItem="Or2-AF-gQ3" secondAttribute="bottom" constant="8" id="70q-E7-Yrt"/>
+                                    <constraint firstItem="Or2-AF-gQ3" firstAttribute="top" secondItem="PsF-54-rwL" secondAttribute="top" id="AIJ-Yf-JVw"/>
+                                    <constraint firstItem="Or2-AF-gQ3" firstAttribute="leading" secondItem="PsF-54-rwL" secondAttribute="leading" id="Has-CH-ghr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Or2-AF-gQ3" secondAttribute="trailing" id="bkq-ZQ-Rcf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Cea-tf-Zcc" secondAttribute="bottom" id="fyh-nT-Aaf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cea-tf-Zcc" secondAttribute="trailing" id="t1m-Vb-QXB"/>
+                                    <constraint firstItem="Cea-tf-Zcc" firstAttribute="leading" secondItem="PsF-54-rwL" secondAttribute="leading" id="vh9-Uv-lHt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uji-rB-qhX" firstAttribute="bottom" secondItem="PsF-54-rwL" secondAttribute="bottom" constant="8" id="LaG-Tq-GH3"/>
+                            <constraint firstItem="PsF-54-rwL" firstAttribute="top" secondItem="uji-rB-qhX" secondAttribute="top" constant="8" id="QjT-Pg-Pjb"/>
+                            <constraint firstItem="PsF-54-rwL" firstAttribute="leading" secondItem="uji-rB-qhX" secondAttribute="leading" constant="8" id="SSd-RK-ZQi"/>
+                            <constraint firstItem="uji-rB-qhX" firstAttribute="trailing" secondItem="PsF-54-rwL" secondAttribute="trailing" constant="8" id="dBd-KS-n79"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uji-rB-qhX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Details" id="0vl-SY-mYN">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iYI-aa-S1F"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="genreLabel" destination="qK5-77-bgM" id="8OF-wP-djR"/>
+                        <outlet property="posterImg" destination="Vos-CX-l81" id="ORZ-PG-jU3"/>
+                        <outlet property="ratingLabel" destination="1ye-VY-gZI" id="HBk-ce-MYP"/>
+                        <outlet property="releaseYearLabel" destination="l9F-5o-pIk" id="UBU-RN-fZP"/>
+                        <outlet property="titleLabel" destination="dYb-66-fKJ" id="WmQ-ga-m2c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAN-c9-psG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
