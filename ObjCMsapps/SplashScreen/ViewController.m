@@ -67,13 +67,13 @@
 
 
 - (void) getMovieCollectionManually {
-    Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"someImageUrl" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
+    Movie *movie1 = [[Movie alloc] initWithTitle:@"roadRunner" andImageUrl:@"https://api.androidhive.info/json/movies/1.jpg" andRating: 9.7 andReleaseYear:1992 andGenre:@[@"horror", @"comedy"]];
     [self.moviesCollection addObject: movie1];
     
-    Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"someImageUrl1" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
+    Movie *movie2 = [[Movie alloc] initWithTitle:@"termaniator" andImageUrl:@"https://api.androidhive.info/json/movies/2.jpg" andRating: 5.7 andReleaseYear:1982 andGenre:@[@"horror", @"comedy", @"drama"]];
     [self.moviesCollection addObject: movie2];
     
-    Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"someImageUrl2" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
+    Movie *movie3 = [[Movie alloc] initWithTitle:@"friends" andImageUrl:@"https://api.androidhive.info/json/movies/3.jpg" andRating: 7.2 andReleaseYear:1987 andGenre:@[@"horror", @"musical", @"drama"]];
     [self.moviesCollection addObject: movie3];
     
     NSLog(@"Splash screen controller says %d", ((Movie *) _moviesCollection[2]).releaseYear); //   how to cast

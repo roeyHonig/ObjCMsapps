@@ -9,7 +9,7 @@
 #import "MovieListViewController.h"
 #import "Movie.h"
 #import "MovieCellTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MovieListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -51,8 +51,10 @@
     
     cell.movieTitleLabel.text = [NSString stringWithFormat:@"%@ (%d)",((Movie *)self.moviesCollection[indexPath.row]).title,((Movie *)self.moviesCollection[indexPath.row]).releaseYear];
     
-    cell.movieThumbNailImage.image = [UIImage imageNamed:@"icons8-movie_filled"];
+    NSString *imageUrl = ((Movie *)self.moviesCollection[indexPath.row]).image;
+    [cell.movieThumbNailImage sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"icons8-short_filled"]]; //TODO: replace the placeHolderImage to something else
     
+   
     return cell;
 }
 
