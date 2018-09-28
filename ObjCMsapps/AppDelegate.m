@@ -104,22 +104,35 @@
                   withGenre: (NSArray *) genre {
     
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
-    NSManagedObject *tmpMovie = [NSEntityDescription insertNewObjectForEntityForName:@"MovieCoreData" inManagedObjectContext:context];
-    
+
     // TODO: cheack for duplicate
-    
-    // insert into coreData
-    [tmpMovie setValue:title forKey:@"title"];
-    [tmpMovie setValue:image forKey:@"image"];
-    [tmpMovie setValue:[NSNumber numberWithDouble:rating] forKey:@"rating"];
-    [tmpMovie setValue:[NSNumber numberWithInt:releaseYear] forKey:@"releaseYear"];
-    [tmpMovie setValue:genre forKey:@"genre"];
-    
-    // try to save to persistant store
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"oops, something went wrong, cant save to coreData %@ %@", error, [error localizedDescription]);
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"MovieCoreData"];
+    NSError *fetchError = nil;
+    [request setPredicate:[NSPredicate predicateWithFormat:@"title == %@", title]];
+    NSArray *results = [context executeFetchRequest:request error:&fetchError];
+
+    if ([results count] != 0) {
+        // There are duplicates
+        return;
+    } else {
+        // insert into coreData
+        NSManagedObject *tmpMovie = [NSEntityDescription insertNewObjectForEntityForName:@"MovieCoreData" inManagedObjectContext:context];
+        
+        
+        [tmpMovie setValue:title forKey:@"title"];
+        [tmpMovie setValue:image forKey:@"image"];
+        [tmpMovie setValue:[NSNumber numberWithDouble:rating] forKey:@"rating"];
+        [tmpMovie setValue:[NSNumber numberWithInt:releaseYear] forKey:@"releaseYear"];
+        [tmpMovie setValue:genre forKey:@"genre"];
+        
+        // try to save to persistant store
+        NSError *error = nil;
+        if (![context save:&error]) {
+            NSLog(@"oops, something went wrong, cant save to coreData %@ %@", error, [error localizedDescription]);
+        }
     }
+    
+   
     
 }
 
