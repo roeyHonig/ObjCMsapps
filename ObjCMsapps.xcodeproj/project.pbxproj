@@ -17,6 +17,7 @@
 		6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954BB215D1DC0002B2ABE /* Movie.m */; };
 		6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954CB215D433F002B2ABE /* MovieListViewController.m */; };
 		6D2954CF215DA20C002B2ABE /* MovieCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954CE215DA20C002B2ABE /* MovieCellTableViewCell.m */; };
+		6DCE7384215DBF9A009C407D /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCE7383215DBF9A009C407D /* MovieDetailsViewController.m */; };
 		A1FC1A08CEBA236F7BFB7385 /* Pods_ObjCMsapps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1182197F10179EA99359F3 /* Pods_ObjCMsapps.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		6D2954CB215D433F002B2ABE /* MovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
 		6D2954CD215DA20C002B2ABE /* MovieCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCellTableViewCell.h; sourceTree = "<group>"; };
 		6D2954CE215DA20C002B2ABE /* MovieCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCellTableViewCell.m; sourceTree = "<group>"; };
+		6DCE7382215DBF9A009C407D /* MovieDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		6DCE7383215DBF9A009C407D /* MovieDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		6D29549D215D02D2002B2ABE /* ObjCMsapps */ = {
 			isa = PBXGroup;
 			children = (
+				6DCE7381215DBF65009C407D /* MovieDetails */,
 				6D2954C9215D4309002B2ABE /* MovieList */,
 				6D2954BD215D1DCC002B2ABE /* MovieDataStructure */,
 				6D2954B7215D096B002B2ABE /* SplashScreen */,
@@ -127,6 +131,15 @@
 			);
 			name = MovieList;
 			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		6DCE7381215DBF65009C407D /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6DCE7382215DBF9A009C407D /* MovieDetailsViewController.h */,
+				6DCE7383215DBF9A009C407D /* MovieDetailsViewController.m */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		ABD8B16BEA12103A61986A2B /* Pods */ = {
@@ -254,6 +267,7 @@
 				6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */,
 				6D2954CF215DA20C002B2ABE /* MovieCellTableViewCell.m in Sources */,
 				6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */,
+				6DCE7384215DBF9A009C407D /* MovieDetailsViewController.m in Sources */,
 				6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */,
 				6D2954B1215D02D2002B2ABE /* main.m in Sources */,
 				6D2954A9215D02D2002B2ABE /* ObjCMsapps.xcdatamodeld in Sources */,

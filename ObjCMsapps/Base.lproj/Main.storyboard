@@ -6,7 +6,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,6 +88,7 @@
                                         <connections>
                                             <outlet property="movieThumbNailImage" destination="IJo-V2-nYr" id="ZUc-Mc-GxG"/>
                                             <outlet property="movieTitleLabel" destination="gdx-hE-e3g" id="P5f-yR-1fQ"/>
+                                            <segue destination="fcS-3B-UdY" kind="show" identifier="goToMovieDetailsSegue" id="VZE-00-pQ2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,18 +104,11 @@
                         <viewLayoutGuide key="safeArea" id="ASp-kQ-HcB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="Gjy-1q-oPc">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="77Q-WE-hNn">
-                                <connections>
-                                    <segue destination="kIk-69-C7Z" kind="show" identifier="" id="GJ5-cj-S03"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Details" id="iEH-N9-mOB">
-                                <connections>
-                                    <segue destination="fcS-3B-UdY" kind="show" identifier="goToMovieDetailsSegue" id="3uL-xn-HFo"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="77Q-WE-hNn">
+                            <connections>
+                                <segue destination="kIk-69-C7Z" kind="show" identifier="" id="GJ5-cj-S03"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="moviesTableView" destination="vCc-4R-0AR" id="PfF-jH-Vqk"/>
@@ -128,7 +121,7 @@
         <!--Movie Details-->
         <scene sceneID="6UY-2R-1dB">
             <objects>
-                <viewController id="fcS-3B-UdY" sceneMemberID="viewController">
+                <viewController id="fcS-3B-UdY" customClass="MovieDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zey-CQ-R2b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

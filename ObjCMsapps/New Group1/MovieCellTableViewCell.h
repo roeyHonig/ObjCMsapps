@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface MovieCellTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *movieThumbNailImage;
 @property (strong, nonatomic) IBOutlet UILabel *movieTitleLabel;
+@property (strong, nonatomic) Movie *specificMovieInfo;
 
 
 
