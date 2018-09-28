@@ -140,7 +140,9 @@
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MovieCoreData"];
-    //TODO: add sorting by release year
+    //sorting by release year
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"releaseYear" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     NSMutableArray *results = [[context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     return results;
