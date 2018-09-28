@@ -54,6 +54,18 @@
 - (void)parseJsonFromFollowingUrl:(NSString *) apiUrl{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithURL:[NSURL URLWithString:apiUrl] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       
+        NSError *jsonError;
+        NSArray *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        NSLog(@"%@", jsonResponse);
+       
+        NSLog(@"tryin the title : %@", jsonResponse[0]);
+        
+    }] resume];
+    
     NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
     
     
