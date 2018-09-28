@@ -133,4 +133,13 @@
     return results;
 }
 
+- (void) deleteAllCoreData {
+    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MovieCoreData"];
+    NSBatchDeleteRequest *delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
+    NSError *deleteError = nil;
+    [self.persistentContainer.persistentStoreCoordinator executeRequest:delete withContext:context error:&deleteError];
+
+}
+
 @end

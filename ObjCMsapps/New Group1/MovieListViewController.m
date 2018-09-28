@@ -6,6 +6,7 @@
 //  Copyright © 5779 student.roey.honig. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "MovieListViewController.h"
 #import "Movie.h"
 #import "MovieCellTableViewCell.h"
@@ -20,6 +21,7 @@
 @end
 
 @implementation MovieListViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,5 +78,9 @@
     return [self.moviesCollection count];
 }
 
+- (IBAction)deleteAllCoreData:(UIBarButtonItem *)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate deleteAllCoreData];
+}
 
 @end

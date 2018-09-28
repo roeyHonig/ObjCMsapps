@@ -25,5 +25,7 @@
 
 - (NSMutableArray *) readCoreData;
 
+- (void) deleteAllCoreData;
+
 @end
 
