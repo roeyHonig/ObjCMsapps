@@ -48,6 +48,11 @@
     [self.view.layer addSublayer:_videoPreviewLayer];
     
     // start the session
+    //[_captureSession startRunning];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [_captureSession startRunning];
 }
 
@@ -57,6 +62,8 @@
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             // we have a QR code let's do something with it
+            // 1st let's stop the session
+            [self.captureSession stopRunning];
             // but remember our session code is currentlly running on a secondary thread so we need
             // to post things back in the main queue
            
@@ -74,10 +81,13 @@
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //completion code
         
+        [[self navigationController] popViewControllerAnimated:YES];
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        // cpmetin code
+        // cpmpletion code
+        
+        [[self navigationController] popViewControllerAnimated:YES];
     }];
     
     [alert addAction:confirm];
