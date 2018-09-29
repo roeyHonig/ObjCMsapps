@@ -57,7 +57,7 @@
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithURL:[NSURL URLWithString:apiUrl] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-       
+       // completion code
         NSError *jsonError;
         NSArray *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
         NSLog(@"%@", jsonResponse);
@@ -73,30 +73,35 @@
         NSDictionary *roey = (NSDictionary *)jsonResponse[0];
         NSLog(@"so roey title is %@", [roey valueForKey:@"title"]);
         
+        
+        // call to perfrom some code assync (not on the main Q which is the ui queue)
+        dispatch_async(dispatch_queue_create("myQueue", NULL), ^{
+            for (Movie *movie in artificialMoviesCollection) {
+                // itearate and save into coreData
+                [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
+            }
+            
+            // read coreData and append to this class local self.moviesCollection
+            NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
+            for (Movie *movie in moviesCollectionFromCoreData) {
+                [self.moviesCollection addObject:movie];
+            }
+            
+            // publish results back in the main Q
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // proceed to next screen
+                [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
+            });
+        });
+        
+        
+        
     }] resume];
     
     //NSMutableArray *artificialMoviesCollection = [self getMovieCollectionManually]; // should be retrived online by URLSession
     
     
-     // call to perfrom some code assync (not on the main Q which is the ui queue)
-     dispatch_async(dispatch_queue_create("myQueue", NULL), ^{
-         for (Movie *movie in artificialMoviesCollection) {
-             // itearate and save into coreData
-             [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
-         }
-         
-         // read coreData and append to this class local self.moviesCollection
-         NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
-         for (Movie *movie in moviesCollectionFromCoreData) {
-             [self.moviesCollection addObject:movie];
-         }
-     
-         // publish results back in the main Q
-         dispatch_async(dispatch_get_main_queue(), ^{
-             // proceed to next screen
-             [self performSegueWithIdentifier:@"goToMovieListSegue" sender:self];
-         });
-     });
+    
 
    
 }
