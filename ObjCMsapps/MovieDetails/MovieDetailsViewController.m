@@ -8,6 +8,10 @@
 
 #import "MovieDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AppDelegate.h"
+#import "MovieListViewController.h"
+
+
 
 
 @interface MovieDetailsViewController ()
@@ -70,8 +74,22 @@
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //completion code
         //TODO: delete from core data
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate deleteMovieFromCoreDataWithTheTitle:self.moviesHeader.title];
+        
+        //re-read the core data
+        NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
+        NSMutableArray *moviesToPassToMovieListController = [[NSMutableArray alloc] init];
+        for (Movie *movie in moviesCollectionFromCoreData) {
+            [moviesToPassToMovieListController addObject:movie];
+        }
+        
+        MovieListViewController *tmpMovieListViewController = (MovieListViewController *)([[self navigationController] viewControllers][0]);
+        
+        tmpMovieListViewController.moviesCollection = moviesToPassToMovieListController;
         
         //TODO: go back to movie list
+        [[self navigationController] popViewControllerAnimated:YES];
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

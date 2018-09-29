@@ -27,5 +27,7 @@
 
 - (void) deleteAllCoreData;
 
+- (void) deleteMovieFromCoreDataWithTheTitle: (NSString *) title;
+
 @end
 
