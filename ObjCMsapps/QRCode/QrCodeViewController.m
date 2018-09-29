@@ -5,9 +5,15 @@
 //  Created by hackeru on 20 Tishri 5779.
 //  Copyright © 5779 student.roey.honig. All rights reserved.
 //
+//This is the correct format for generating QR Code using a text string to be later read by the QR scanner and correctlly decoded
+//   {"title":"Planet of the Apes","genre":["Action"],"image":"https:\/\/api.androidhive.info\/json\/movies\/1.jpg","rating":8.300000000000001,"releaseYear":2019}
 
 #import "QrCodeViewController.h"
 # import <AVFoundation/AVFoundation.h>
+#import "AppDelegate.h"
+#import "Movie.h"
+#import "MovieListViewController.h"
+
 
 @interface QrCodeViewController ()
 // this is a private interface
@@ -68,18 +74,45 @@
             // to post things back in the main queue
            
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showAlertWithMeassege:[metadataObj stringValue]];
+                NSError *jsonError;
+                NSData *data = [[metadataObj stringValue] dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+                NSLog(@"qr code image url is: %@", [jsonResponse valueForKey:@"image"]);
+                
+                NSString *tmpTitle = (NSString *)([jsonResponse valueForKey:@"title"]);
+                NSString *tmpImage = (NSString *)([jsonResponse valueForKey:@"image"]);
+                double tmpRating = [[jsonResponse valueForKey:@"rating"] doubleValue];
+                int tmpReleaseYear = [[jsonResponse valueForKey:@"releaseYear"] integerValue];
+                NSArray *tmpgenre = (NSArray *)([jsonResponse valueForKey:@"genre"]);
+                
+                Movie *newMovieFromQRCode = [[Movie alloc] initWithTitle:tmpTitle andImageUrl:tmpImage andRating:tmpRating andReleaseYear:tmpReleaseYear andGenre:tmpgenre];
+                NSString *alertMassage = [[NSString alloc] initWithFormat:@"Would you like to add yy %@ yy to your list?", newMovieFromQRCode.title];
+                
+                [self showAlertWithMeassege:alertMassage aboutAddingTheNewMovie:newMovieFromQRCode];
                
             });
         }
     }
 }
 
-- (void) showAlertWithMeassege: (NSString *) massage{
+- (void) showAlertWithMeassege: (NSString *) massage aboutAddingTheNewMovie: (Movie *) movie{
     UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warning" message:massage preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //completion code
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate saveMovieWithTitle:movie.title withPosterImageUrl:movie.image withRating:movie.rating withReleaseYear:movie.releaseYear withGenre:movie.genre];
+        
+        //re-read the core data
+        NSMutableArray *moviesCollectionFromCoreData = [appDelegate readCoreData];
+        NSMutableArray *moviesToPassToMovieListController = [[NSMutableArray alloc] init];
+        for (Movie *movie in moviesCollectionFromCoreData) {
+            [moviesToPassToMovieListController addObject:movie];
+        }
+        
+        MovieListViewController *tmpMovieListViewController = (MovieListViewController *)([[self navigationController] viewControllers][0]);
+        
+        tmpMovieListViewController.moviesCollection = moviesToPassToMovieListController;
         
         [[self navigationController] popViewControllerAnimated:YES];
     }];
