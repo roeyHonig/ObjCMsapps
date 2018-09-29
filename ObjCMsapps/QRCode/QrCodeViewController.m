@@ -51,6 +51,40 @@
     [_captureSession startRunning];
 }
 
+- (void) captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
+    if (metadataObjects !=nil && [metadataObjects count] > 0) {
+        // we have data
+        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            // we have a QR code let's do something with it
+            // but remember our session code is currentlly running on a secondary thread so we need
+            // to post things back in the main queue
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showAlertWithMeassege:[metadataObj stringValue]];
+               
+            });
+        }
+    }
+}
+
+- (void) showAlertWithMeassege: (NSString *) massage{
+    UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warning" message:massage preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //completion code
+        
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        // cpmetin code
+    }];
+    
+    [alert addAction:confirm];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
