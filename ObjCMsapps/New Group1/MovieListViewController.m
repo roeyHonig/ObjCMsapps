@@ -82,9 +82,5 @@
     return [self.moviesCollection count];
 }
 
-- (IBAction)deleteAllCoreData:(UIBarButtonItem *)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate deleteAllCoreData];
-}
 
 @end
