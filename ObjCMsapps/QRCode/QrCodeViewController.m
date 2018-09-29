@@ -23,12 +23,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSError *error;
     self.captureSession = nil;
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    
+    self.captureSession = [[AVCaptureSession alloc] init];
+    [self.captureSession addInput:input];
+    
+    AVCaptureMetadataOutput *captureMetaDataOutput = [[AVCaptureMetadataOutput alloc] init];
+    [self.captureSession addOutput:captureMetaDataOutput];
+    
+    // setup what kind of data (output we're expecting) - QR Code in our case
+    dispatch_queue_t dispatchQueue;
+    dispatchQueue = dispatch_queue_create("myQueue", NULL);
+    [captureMetaDataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
+    [captureMetaDataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    
+    // show the user what the camera sees
+    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [_videoPreviewLayer setFrame: self.view.layer.bounds];
+    [self.view.layer addSublayer:_videoPreviewLayer];
+    
+    // start the session
+    [_captureSession startRunning];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+   
 }
 
 /*
