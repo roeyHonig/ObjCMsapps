@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -223,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="3088.8000000000002" y="116.49175412293854"/>
         </scene>
-        <!--View Controller-->
+        <!--Qr Code View Controller-->
         <scene sceneID="I0s-sY-ORF">
             <objects>
-                <viewController id="kIk-69-C7Z" sceneMemberID="viewController">
+                <viewController id="kIk-69-C7Z" customClass="QrCodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dgz-xr-nVE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

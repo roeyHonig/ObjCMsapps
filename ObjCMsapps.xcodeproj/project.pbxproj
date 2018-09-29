@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E3D1C015907C586AF1A69C2 /* libPods-ObjCMsapps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E412DD80AADD12F5358347B0 /* libPods-ObjCMsapps.a */; };
+		6D17356B215F678600750EE3 /* QrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D17356A215F678600750EE3 /* QrCodeViewController.m */; };
 		6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D29549F215D02D2002B2ABE /* AppDelegate.m */; };
 		6D2954A3215D02D2002B2ABE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2954A2215D02D2002B2ABE /* ViewController.m */; };
 		6D2954A6215D02D2002B2ABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2954A4215D02D2002B2ABE /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		1BB33D6B5FDC0421FDD41D72 /* Pods-ObjCMsapps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCMsapps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps.debug.xcconfig"; sourceTree = "<group>"; };
 		33CE44E8BCD45DE8896366C6 /* Pods-ObjCMsapps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCMsapps.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCMsapps/Pods-ObjCMsapps.release.xcconfig"; sourceTree = "<group>"; };
+		6D173569215F678600750EE3 /* QrCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QrCodeViewController.h; sourceTree = "<group>"; };
+		6D17356A215F678600750EE3 /* QrCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QrCodeViewController.m; sourceTree = "<group>"; };
 		6D29549B215D02D2002B2ABE /* ObjCMsapps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCMsapps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D29549E215D02D2002B2ABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D29549F215D02D2002B2ABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,6 +69,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6D173565215F64BC00750EE3 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				6D173569215F678600750EE3 /* QrCodeViewController.h */,
+				6D17356A215F678600750EE3 /* QrCodeViewController.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		6D295492215D02D2002B2ABE = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 		6D29549D215D02D2002B2ABE /* ObjCMsapps */ = {
 			isa = PBXGroup;
 			children = (
+				6D173565215F64BC00750EE3 /* QRCode */,
 				6DCE7381215DBF65009C407D /* MovieDetails */,
 				6D2954C9215D4309002B2ABE /* MovieList */,
 				6D2954BD215D1DCC002B2ABE /* MovieDataStructure */,
@@ -248,6 +261,7 @@
 				6D2954CC215D433F002B2ABE /* MovieListViewController.m in Sources */,
 				6D2954CF215DA20C002B2ABE /* MovieCellTableViewCell.m in Sources */,
 				6D2954A0215D02D2002B2ABE /* AppDelegate.m in Sources */,
+				6D17356B215F678600750EE3 /* QrCodeViewController.m in Sources */,
 				6DCE7384215DBF9A009C407D /* MovieDetailsViewController.m in Sources */,
 				6D2954BC215D1DC0002B2ABE /* Movie.m in Sources */,
 				6D2954B1215D02D2002B2ABE /* main.m in Sources */,
@@ -389,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA3LC47ZM3;
 				INFOPLIST_FILE = ObjCMsapps/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = student.roey.honig.ObjCMsapps;
@@ -405,6 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA3LC47ZM3;
 				INFOPLIST_FILE = ObjCMsapps/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = student.roey.honig.ObjCMsapps;
