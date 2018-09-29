@@ -23,6 +23,7 @@
 
 @implementation MovieDetailsViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -61,6 +62,25 @@
     [self.posterImg sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"icons8-short_filled"]]; //TODO: replace the placeHolderImage to something else
     
     
+}
+
+- (IBAction)deleteThisMovie:(UIBarButtonItem *)sender {
+    UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warning" message:@"Are You Sure you want to delete this movie from your list?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //completion code
+        //TODO: delete from core data
+        
+        //TODO: go back to movie list
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:confirm];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

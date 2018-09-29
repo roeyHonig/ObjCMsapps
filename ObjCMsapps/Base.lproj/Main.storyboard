@@ -205,7 +205,11 @@
                         <viewLayoutGuide key="safeArea" id="uji-rB-qhX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Details" id="0vl-SY-mYN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iYI-aa-S1F"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iYI-aa-S1F">
+                            <connections>
+                                <action selector="deleteThisMovie:" destination="fcS-3B-UdY" id="83h-e2-BJK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="genreLabel" destination="qK5-77-bgM" id="8OF-wP-djR"/>
