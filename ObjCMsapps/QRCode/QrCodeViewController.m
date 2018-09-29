@@ -86,7 +86,7 @@
                 NSArray *tmpgenre = (NSArray *)([jsonResponse valueForKey:@"genre"]);
                 
                 Movie *newMovieFromQRCode = [[Movie alloc] initWithTitle:tmpTitle andImageUrl:tmpImage andRating:tmpRating andReleaseYear:tmpReleaseYear andGenre:tmpgenre];
-                NSString *alertMassage = [[NSString alloc] initWithFormat:@"Would you like to add yy %@ yy to your list?", newMovieFromQRCode.title];
+                NSString *alertMassage = [[NSString alloc] initWithFormat:@"Would you like to add \"%@\" to your list?", newMovieFromQRCode.title];
                 
                 [self showAlertWithMeassege:alertMassage aboutAddingTheNewMovie:newMovieFromQRCode];
                

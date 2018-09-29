@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3zs-Br-ePK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ZE-Tu-fYQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3zs-Br-ePK" secondAttribute="trailing" constant="8" id="PAk-JU-fz3"/>
@@ -96,7 +96,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ASp-kQ-HcB" firstAttribute="bottom" secondItem="vCc-4R-0AR" secondAttribute="bottom" id="NMu-5u-a5e"/>
                             <constraint firstItem="vCc-4R-0AR" firstAttribute="trailing" secondItem="ASp-kQ-HcB" secondAttribute="trailing" constant="-8" id="Y4x-Dj-XFw"/>
@@ -196,7 +196,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uji-rB-qhX" firstAttribute="bottom" secondItem="PsF-54-rwL" secondAttribute="bottom" constant="8" id="LaG-Tq-GH3"/>
                             <constraint firstItem="PsF-54-rwL" firstAttribute="top" secondItem="uji-rB-qhX" secondAttribute="top" constant="8" id="QjT-Pg-Pjb"/>
